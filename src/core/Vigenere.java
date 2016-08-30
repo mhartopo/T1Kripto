@@ -29,7 +29,7 @@ public class Vigenere {
 			int j = 0;
 			for (int i = 0; i < text.length(); i++) {
 				char c = text.charAt(i);
-				if (c != ' ') {
+				if (c >= 'A' && c <= 'Z') {
 					result += (char)((c + key.charAt(j) - 2 * 'A') % 26 + 'A');
 					j = (j+1) % key.length();
 				} else {
@@ -57,7 +57,7 @@ public class Vigenere {
 			int j = 0;
 			for (int i = 0; i < chipertext.length(); i++) {
 				char c = chipertext.charAt(i);
-				if (c != ' ') {
+				if (c >= 'A' && c <= 'Z') {
 					result += (char)((c - key.charAt(j) + 26) % 26 + 'A');
 					j = (j+1) % key.length();
 				} else {
