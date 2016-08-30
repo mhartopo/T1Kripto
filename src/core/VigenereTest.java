@@ -33,6 +33,7 @@ public class VigenereTest {
 	
 	@Test
 	public void testAdvDecrypt() {
+		vg.setMode(1);
 		String res = vg.Encrypt(txt, key2);
 		res = vg.Decrypt(res, key2);
 		assertEquals(res,txt);

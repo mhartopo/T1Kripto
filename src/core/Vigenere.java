@@ -42,7 +42,6 @@ public class Vigenere {
 				char c = text.charAt(i);
 				if (c != ' ') {
 					result += (char)((c + key.charAt(j)) % 256);
-					System.out.println(result);
 					j = (j+1) % key.length();
 				} else {
 					result += c;
