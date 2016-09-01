@@ -22,7 +22,7 @@ public class Vigenere {
 	}
 	
 	//operation
-	public String Encrypt(String text, String key) {
+	public String encrypt(String text, String key) {
 		String result  = "";
 		if(mode == 0) {
 			text = text.toUpperCase();
@@ -51,7 +51,7 @@ public class Vigenere {
 		return result;
 	}
 	
-	public String Decrypt(String chipertext, String key) {
+	public String decrypt(String chipertext, String key) {
 		String result  = "";
 		if(mode == 0) {
 			int j = 0;

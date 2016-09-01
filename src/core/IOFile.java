@@ -20,7 +20,7 @@ public class IOFile {
 		this.setMode(mode);
 	}
 	
-	public String Read(String FileName) {
+	public String readText(String FileName) {
 		BufferedReader br = null;
 		String line = "";
 		String res = "";
@@ -48,11 +48,9 @@ public class IOFile {
 		return res;
 	}
 	
-	public void write(String name, String content) {
+	public void writeText(String name, String content) {
 		try {
-
 			File file = new File(name);
-
 			// if file doesnt exists, then create it
 			if (!file.exists()) {
 				file.createNewFile();
@@ -62,7 +60,7 @@ public class IOFile {
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(content);
 			bw.close();
-			
+			System.out.println("Done");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

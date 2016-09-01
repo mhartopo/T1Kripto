@@ -12,14 +12,14 @@ public class VigenereTest {
 	@Test
 	public void testNormalEncr() {
 		String expected = "HFNLPYOSND";
-		String res = vg.Encrypt(txt, key);
+		String res = vg.encrypt(txt, key);
 		assertEquals(res,expected);
 	}
 	
 	@Test
 	public void testNormalDecrypt() {
-		String res = vg.Encrypt(txt, key);
-		res = vg.Decrypt(res, key);
+		String res = vg.encrypt(txt, key);
+		res = vg.encrypt(res, key);
 		assertEquals(res,txt);
 		
 	}
@@ -27,15 +27,15 @@ public class VigenereTest {
 	public void testAdvEncr() {
 		vg.setMode(1);
 		String expected = "HFNLPYOSND";
-		String res = vg.Encrypt(txt, key2);
+		String res = vg.encrypt(txt, key2);
 		assertEquals(res,expected);
 	}
 	
 	@Test
 	public void testAdvDecrypt() {
 		vg.setMode(1);
-		String res = vg.Encrypt(txt, key2);
-		res = vg.Decrypt(res, key2);
+		String res = vg.encrypt(txt, key2);
+		res = vg.encrypt(res, key2);
 		assertEquals(res,txt);
 		
 	}
