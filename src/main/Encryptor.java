@@ -60,7 +60,7 @@ public class Encryptor {
 	public static void main(String[] args) {
 		Encryptor enc = new Encryptor();
 		String txt = "Hello world nama saya adalah haha";
-		String key = "institut";
+		String key = "halobandung";
 		String res = enc.encrypt(txt, key, 3);
 		System.out.println(res);
 		

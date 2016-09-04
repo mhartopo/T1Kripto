@@ -15,8 +15,15 @@ public class Playfair {
     }
 
     public String Encrypt(String text, String key){
+    	text = text.replace(" ", "");
+        text = text.toLowerCase();
         text = text.replace('j', 'i');
+        
+        key = key.replace(" ", "");
+        key = key.toLowerCase();
+        
         String result = "";
+        
         KeySquare keySquare = new KeySquare();
         keySquare.generateKey(key);
         int position=0;
@@ -40,7 +47,8 @@ public class Playfair {
     }
 
     public String Decrypt(String text, String key){
-        String result = "";
+    	text = text.replace(" ", "");
+    	String result = "";
         KeySquare keySquare = new KeySquare();
         keySquare.generateKey(key);
         int position=0;
@@ -54,6 +62,5 @@ public class Playfair {
         }
         return result;
     }
-    
 }
 
