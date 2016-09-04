@@ -1,4 +1,4 @@
-package core;
+package core.vigenere;
 
 public class Vigenere {
 	//mode 0 =  26 character (a - z), mode 1 = 256 ASCII

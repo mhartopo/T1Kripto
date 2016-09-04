@@ -1,30 +1,51 @@
 package main;
 
+import core.playfair.Playfair;
+import core.vigenere.*;
+
 public class Encryptor {
 	private int algorithm;
 	// 0 = normal vigenere, 1 = 256 vigenere, 2 = vigenere modifikasi, 3 = playfair
-	private int textType;
-	//0 = text, 1 = binary
+	private Vigenere vigenere;
+	private ModifiedVigenere mvigenere;
+	private Playfair playfair;
 	
 	public Encryptor() {
 		setAlgorithm(0);
-		setTextType(0);
+		vigenere = new Vigenere();
+		mvigenere = new ModifiedVigenere();
+		playfair = new Playfair();
 	}
-	
-	public Encryptor(int algo, int ttype) {
-		setAlgorithm(algo);
-		setTextType(ttype);
-	}
-	
-	public String encrypt(String plainMsg) {
+
+	public String encrypt(String plainMsg, String key, int algo) {
 		String res = "";
-		//masih stub
+		if (algo == 0) {
+			vigenere.setMode(0);
+			res = vigenere.encrypt(plainMsg, key);
+		} else if (algo == 1) {
+			vigenere.setMode(1);
+			res = vigenere.encrypt(plainMsg, key);
+		} else if (algo == 2) {
+			res = mvigenere.Encrypt(plainMsg);
+		} else if (algo == 3) {
+			res = playfair.Encrypt(plainMsg, key);
+		}
 		return res;
 	}
 	
-	public String decrypt(String chiperMsg) {
+	public String decrypt(String chiperMsg, String key, int algo) {
 		String res = "";
-		//masih stub
+		if (algo == 0) {
+			vigenere.setMode(0);
+			res = vigenere.decrypt(chiperMsg, key);
+		} else if (algo == 1) {
+			vigenere.setMode(1);
+			res = vigenere.decrypt(chiperMsg, key);
+		} else if (algo == 2) {
+			res = mvigenere.Decrypt(chiperMsg);
+		} else if (algo == 3) {
+			res = playfair.Decrypt(chiperMsg, key);
+		}
 		return res;
 	}
 	//Getter and setter
@@ -35,14 +56,13 @@ public class Encryptor {
 	public void setAlgorithm(int algorithm) {
 		this.algorithm = algorithm;
 	}
-
-	public int getTextType() {
-		return textType;
-	}
-
-	public void setTextType(int textType) {
-		this.textType = textType;
-	}
 	
-	
+	public static void main(String[] args) {
+		Encryptor enc = new Encryptor();
+		String txt = "Hello world nama saya adalah haha";
+		String key = "institut";
+		String res = enc.encrypt(txt, key, 3);
+		System.out.println(res);
+		
+	}
 }
